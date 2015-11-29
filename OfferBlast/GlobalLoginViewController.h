@@ -11,6 +11,7 @@
 @interface GlobalLoginViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIButton *facebookLoginBtn;
+- (IBAction)_loginWithFacebook:(id)sender;
 
 
 @end

@@ -21,6 +21,24 @@
 		2538EC221BF9A88300DF7465 /* facebookbtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2538EC201BF9A88300DF7465 /* facebookbtn@2x.png */; settings = {ASSET_TAGS = (); }; };
 		2538EC231BF9A88300DF7465 /* facebookbtn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2538EC211BF9A88300DF7465 /* facebookbtn@3x.png */; settings = {ASSET_TAGS = (); }; };
 		2538EC261BF9B3E400DF7465 /* WebServiceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2538EC251BF9B3E400DF7465 /* WebServiceClient.m */; settings = {ASSET_TAGS = (); }; };
+		2583EE911BFDA45F0033AFCC /* Icon_SignUp_English.png in Resources */ = {isa = PBXBuildFile; fileRef = 2583EE8F1BFDA45F0033AFCC /* Icon_SignUp_English.png */; settings = {ASSET_TAGS = (); }; };
+		2583EE921BFDA45F0033AFCC /* LOGIN.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2583EE901BFDA45F0033AFCC /* LOGIN.jpg */; settings = {ASSET_TAGS = (); }; };
+		2583EE941BFDA7380033AFCC /* flyingtech_login.png in Resources */ = {isa = PBXBuildFile; fileRef = 2583EE931BFDA7380033AFCC /* flyingtech_login.png */; settings = {ASSET_TAGS = (); }; };
+		2583EE971BFDAE450033AFCC /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2583EE961BFDAE450033AFCC /* MoreViewController.m */; settings = {ASSET_TAGS = (); }; };
+		2583EE9E1BFDB9B00033AFCC /* NearByDealsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2583EE9D1BFDB9B00033AFCC /* NearByDealsViewController.m */; settings = {ASSET_TAGS = (); }; };
+		2583EEA21BFDBAA40033AFCC /* DailyDealsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2583EEA11BFDBAA40033AFCC /* DailyDealsTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		2583EEA51BFDBAC20033AFCC /* WeeklyDealsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2583EEA41BFDBAC20033AFCC /* WeeklyDealsTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		2583EEA91BFDC6E40033AFCC /* SeeMoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2583EEA81BFDC6E40033AFCC /* SeeMoreTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		2583EEAE1BFDD1CB0033AFCC /* 81S6SuC1NHL._SL1500_.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2583EEAA1BFDD1CB0033AFCC /* 81S6SuC1NHL._SL1500_.jpg */; settings = {ASSET_TAGS = (); }; };
+		2583EEAF1BFDD1CB0033AFCC /* CoinMain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2583EEAB1BFDD1CB0033AFCC /* CoinMain.jpg */; settings = {ASSET_TAGS = (); }; };
+		2583EEB01BFDD1CB0033AFCC /* House_of_Cards_Season_1_Poster.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2583EEAC1BFDD1CB0033AFCC /* House_of_Cards_Season_1_Poster.jpg */; settings = {ASSET_TAGS = (); }; };
+		2583EEB11BFDD1CB0033AFCC /* SurfacePro3Primary_Print.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2583EEAD1BFDD1CB0033AFCC /* SurfacePro3Primary_Print.jpg */; settings = {ASSET_TAGS = (); }; };
+		2583EEB31BFDD4120033AFCC /* images.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2583EEB21BFDD4110033AFCC /* images.jpeg */; settings = {ASSET_TAGS = (); }; };
+		2583EEB51BFDD4620033AFCC /* SurfaceBook_206x130px.png in Resources */ = {isa = PBXBuildFile; fileRef = 2583EEB41BFDD4620033AFCC /* SurfaceBook_206x130px.png */; settings = {ASSET_TAGS = (); }; };
+		2583EEB71BFDD8E10033AFCC /* icon175x175.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2583EEB61BFDD8E10033AFCC /* icon175x175.jpeg */; settings = {ASSET_TAGS = (); }; };
+		2583EEB91BFDD97A0033AFCC /* offer-icon-5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2583EEB81BFDD97A0033AFCC /* offer-icon-5.jpg */; settings = {ASSET_TAGS = (); }; };
+		2583EEBB1BFDD9BB0033AFCC /* 18250249-Smiley-Vector-Illustration-Offer-Blast-Bomb-Face-Stock-Vector-cartoon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2583EEBA1BFDD9BB0033AFCC /* 18250249-Smiley-Vector-Illustration-Offer-Blast-Bomb-Face-Stock-Vector-cartoon.jpg */; settings = {ASSET_TAGS = (); }; };
+		2583EEBD1BFDDA390033AFCC /* 22-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 2583EEBC1BFDDA390033AFCC /* 22-512.png */; settings = {ASSET_TAGS = (); }; };
 		B7543CC6F5F3CB55D371223C /* libPods-OfferBlast.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4DC8065051BDE11068F9EAA /* libPods-OfferBlast.a */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +79,29 @@
 		2538EC211BF9A88300DF7465 /* facebookbtn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebookbtn@3x.png"; sourceTree = "<group>"; };
 		2538EC241BF9B3E400DF7465 /* WebServiceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebServiceClient.h; sourceTree = "<group>"; };
 		2538EC251BF9B3E400DF7465 /* WebServiceClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebServiceClient.m; sourceTree = "<group>"; };
+		2583EE8F1BFDA45F0033AFCC /* Icon_SignUp_English.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_SignUp_English.png; sourceTree = "<group>"; };
+		2583EE901BFDA45F0033AFCC /* LOGIN.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LOGIN.jpg; sourceTree = "<group>"; };
+		2583EE931BFDA7380033AFCC /* flyingtech_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flyingtech_login.png; sourceTree = "<group>"; };
+		2583EE951BFDAE450033AFCC /* MoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreViewController.h; sourceTree = "<group>"; };
+		2583EE961BFDAE450033AFCC /* MoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreViewController.m; sourceTree = "<group>"; };
+		2583EE9C1BFDB9B00033AFCC /* NearByDealsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearByDealsViewController.h; sourceTree = "<group>"; };
+		2583EE9D1BFDB9B00033AFCC /* NearByDealsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearByDealsViewController.m; sourceTree = "<group>"; };
+		2583EEA01BFDBAA40033AFCC /* DailyDealsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyDealsTableViewCell.h; sourceTree = "<group>"; };
+		2583EEA11BFDBAA40033AFCC /* DailyDealsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyDealsTableViewCell.m; sourceTree = "<group>"; };
+		2583EEA31BFDBAC20033AFCC /* WeeklyDealsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeeklyDealsTableViewCell.h; sourceTree = "<group>"; };
+		2583EEA41BFDBAC20033AFCC /* WeeklyDealsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeeklyDealsTableViewCell.m; sourceTree = "<group>"; };
+		2583EEA71BFDC6E40033AFCC /* SeeMoreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeeMoreTableViewCell.h; sourceTree = "<group>"; };
+		2583EEA81BFDC6E40033AFCC /* SeeMoreTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeeMoreTableViewCell.m; sourceTree = "<group>"; };
+		2583EEAA1BFDD1CB0033AFCC /* 81S6SuC1NHL._SL1500_.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 81S6SuC1NHL._SL1500_.jpg; sourceTree = "<group>"; };
+		2583EEAB1BFDD1CB0033AFCC /* CoinMain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = CoinMain.jpg; sourceTree = "<group>"; };
+		2583EEAC1BFDD1CB0033AFCC /* House_of_Cards_Season_1_Poster.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = House_of_Cards_Season_1_Poster.jpg; sourceTree = "<group>"; };
+		2583EEAD1BFDD1CB0033AFCC /* SurfacePro3Primary_Print.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SurfacePro3Primary_Print.jpg; sourceTree = "<group>"; };
+		2583EEB21BFDD4110033AFCC /* images.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = images.jpeg; sourceTree = "<group>"; };
+		2583EEB41BFDD4620033AFCC /* SurfaceBook_206x130px.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SurfaceBook_206x130px.png; sourceTree = "<group>"; };
+		2583EEB61BFDD8E10033AFCC /* icon175x175.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon175x175.jpeg; sourceTree = "<group>"; };
+		2583EEB81BFDD97A0033AFCC /* offer-icon-5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "offer-icon-5.jpg"; sourceTree = "<group>"; };
+		2583EEBA1BFDD9BB0033AFCC /* 18250249-Smiley-Vector-Illustration-Offer-Blast-Bomb-Face-Stock-Vector-cartoon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "18250249-Smiley-Vector-Illustration-Offer-Blast-Bomb-Face-Stock-Vector-cartoon.jpg"; sourceTree = "<group>"; };
+		2583EEBC1BFDDA390033AFCC /* 22-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "22-512.png"; sourceTree = "<group>"; };
 		D11153A3169CD6A0C562C3CC /* Pods-OfferBlast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OfferBlast.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OfferBlast/Pods-OfferBlast.debug.xcconfig"; sourceTree = "<group>"; };
 		D68CE2006E22E8F3CB184E53 /* Pods-OfferBlast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OfferBlast.release.xcconfig"; path = "Pods/Target Support Files/Pods-OfferBlast/Pods-OfferBlast.release.xcconfig"; sourceTree = "<group>"; };
 		F4DC8065051BDE11068F9EAA /* libPods-OfferBlast.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OfferBlast.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,22 +149,17 @@
 		2538EBE81BF9683E00DF7465 /* OfferBlast */ = {
 			isa = PBXGroup;
 			children = (
-				2538EBEC1BF9683E00DF7465 /* AppDelegate.h */,
-				2538EBED1BF9683E00DF7465 /* AppDelegate.m */,
+				2583EE9B1BFDB3500033AFCC /* Other */,
 				2538EBEF1BF9683E00DF7465 /* ViewController.h */,
 				2538EBF01BF9683E00DF7465 /* ViewController.m */,
 				2538EBF21BF9683E00DF7465 /* Main.storyboard */,
+				2583EEA61BFDBAD30033AFCC /* TableCells */,
+				2583EE9F1BFDB9BC0033AFCC /* Deals */,
 				2538EC271BF9B44400DF7465 /* WebService */,
-				2538EC1D1BF9998E00DF7465 /* GlobalLoginViewController.h */,
-				2538EC1E1BF9998E00DF7465 /* GlobalLoginViewController.m */,
+				2583EE981BFDB3110033AFCC /* Login */,
 				2538EBF81BF9683E00DF7465 /* Assets.xcassets */,
-				2538EBFA1BF9683E00DF7465 /* LaunchScreen.storyboard */,
-				2538EBFD1BF9683E00DF7465 /* Info.plist */,
-				2538EBF51BF9683E00DF7465 /* OfferBlast.xcdatamodeld */,
-				2538EC191BF9723800DF7465 /* Maps-Near-Me-icon.png */,
-				2538EC1B1BF9734100DF7465 /* 15-32.png */,
-				2538EC201BF9A88300DF7465 /* facebookbtn@2x.png */,
-				2538EC211BF9A88300DF7465 /* facebookbtn@3x.png */,
+				2583EE9A1BFDB3470033AFCC /* Resources */,
+				2583EE991BFDB3260033AFCC /* Icons */,
 				2538EBE91BF9683E00DF7465 /* Supporting Files */,
 			);
 			path = OfferBlast;
@@ -153,6 +189,82 @@
 				2538EC251BF9B3E400DF7465 /* WebServiceClient.m */,
 			);
 			name = WebService;
+			sourceTree = "<group>";
+		};
+		2583EE981BFDB3110033AFCC /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				2538EC1D1BF9998E00DF7465 /* GlobalLoginViewController.h */,
+				2538EC1E1BF9998E00DF7465 /* GlobalLoginViewController.m */,
+				2583EE951BFDAE450033AFCC /* MoreViewController.h */,
+				2583EE961BFDAE450033AFCC /* MoreViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		2583EE991BFDB3260033AFCC /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				2583EEBC1BFDDA390033AFCC /* 22-512.png */,
+				2583EEBA1BFDD9BB0033AFCC /* 18250249-Smiley-Vector-Illustration-Offer-Blast-Bomb-Face-Stock-Vector-cartoon.jpg */,
+				2583EEB81BFDD97A0033AFCC /* offer-icon-5.jpg */,
+				2583EEB61BFDD8E10033AFCC /* icon175x175.jpeg */,
+				2583EEB21BFDD4110033AFCC /* images.jpeg */,
+				2583EEAA1BFDD1CB0033AFCC /* 81S6SuC1NHL._SL1500_.jpg */,
+				2583EEAB1BFDD1CB0033AFCC /* CoinMain.jpg */,
+				2583EEAC1BFDD1CB0033AFCC /* House_of_Cards_Season_1_Poster.jpg */,
+				2583EEAD1BFDD1CB0033AFCC /* SurfacePro3Primary_Print.jpg */,
+				2538EC191BF9723800DF7465 /* Maps-Near-Me-icon.png */,
+				2538EC1B1BF9734100DF7465 /* 15-32.png */,
+				2538EC201BF9A88300DF7465 /* facebookbtn@2x.png */,
+				2538EC211BF9A88300DF7465 /* facebookbtn@3x.png */,
+				2583EE8F1BFDA45F0033AFCC /* Icon_SignUp_English.png */,
+				2583EE901BFDA45F0033AFCC /* LOGIN.jpg */,
+				2583EE931BFDA7380033AFCC /* flyingtech_login.png */,
+				2583EEB41BFDD4620033AFCC /* SurfaceBook_206x130px.png */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
+		2583EE9A1BFDB3470033AFCC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2538EBFA1BF9683E00DF7465 /* LaunchScreen.storyboard */,
+				2538EBFD1BF9683E00DF7465 /* Info.plist */,
+				2538EBF51BF9683E00DF7465 /* OfferBlast.xcdatamodeld */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		2583EE9B1BFDB3500033AFCC /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				2538EBEC1BF9683E00DF7465 /* AppDelegate.h */,
+				2538EBED1BF9683E00DF7465 /* AppDelegate.m */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
+		2583EE9F1BFDB9BC0033AFCC /* Deals */ = {
+			isa = PBXGroup;
+			children = (
+				2583EE9C1BFDB9B00033AFCC /* NearByDealsViewController.h */,
+				2583EE9D1BFDB9B00033AFCC /* NearByDealsViewController.m */,
+			);
+			name = Deals;
+			sourceTree = "<group>";
+		};
+		2583EEA61BFDBAD30033AFCC /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				2583EEA01BFDBAA40033AFCC /* DailyDealsTableViewCell.h */,
+				2583EEA11BFDBAA40033AFCC /* DailyDealsTableViewCell.m */,
+				2583EEA31BFDBAC20033AFCC /* WeeklyDealsTableViewCell.h */,
+				2583EEA41BFDBAC20033AFCC /* WeeklyDealsTableViewCell.m */,
+				2583EEA71BFDC6E40033AFCC /* SeeMoreTableViewCell.h */,
+				2583EEA81BFDC6E40033AFCC /* SeeMoreTableViewCell.m */,
+			);
+			name = TableCells;
 			sourceTree = "<group>";
 		};
 		C8D62C562371ED0A32F7004E /* Pods */ = {
@@ -259,13 +371,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2583EE921BFDA45F0033AFCC /* LOGIN.jpg in Resources */,
 				2538EBFC1BF9683E00DF7465 /* LaunchScreen.storyboard in Resources */,
+				2583EE941BFDA7380033AFCC /* flyingtech_login.png in Resources */,
+				2583EE911BFDA45F0033AFCC /* Icon_SignUp_English.png in Resources */,
 				2538EC1C1BF9734100DF7465 /* 15-32.png in Resources */,
+				2583EEAF1BFDD1CB0033AFCC /* CoinMain.jpg in Resources */,
 				2538EC1A1BF9723800DF7465 /* Maps-Near-Me-icon.png in Resources */,
+				2583EEBB1BFDD9BB0033AFCC /* 18250249-Smiley-Vector-Illustration-Offer-Blast-Bomb-Face-Stock-Vector-cartoon.jpg in Resources */,
+				2583EEB71BFDD8E10033AFCC /* icon175x175.jpeg in Resources */,
 				2538EC231BF9A88300DF7465 /* facebookbtn@3x.png in Resources */,
+				2583EEBD1BFDDA390033AFCC /* 22-512.png in Resources */,
+				2583EEB11BFDD1CB0033AFCC /* SurfacePro3Primary_Print.jpg in Resources */,
 				2538EBF91BF9683E00DF7465 /* Assets.xcassets in Resources */,
 				2538EBF41BF9683E00DF7465 /* Main.storyboard in Resources */,
+				2583EEB51BFDD4620033AFCC /* SurfaceBook_206x130px.png in Resources */,
+				2583EEB31BFDD4120033AFCC /* images.jpeg in Resources */,
 				2538EC221BF9A88300DF7465 /* facebookbtn@2x.png in Resources */,
+				2583EEB91BFDD97A0033AFCC /* offer-icon-5.jpg in Resources */,
+				2583EEAE1BFDD1CB0033AFCC /* 81S6SuC1NHL._SL1500_.jpg in Resources */,
+				2583EEB01BFDD1CB0033AFCC /* House_of_Cards_Season_1_Poster.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,10 +458,15 @@
 			files = (
 				2538EBF11BF9683E00DF7465 /* ViewController.m in Sources */,
 				2538EBEE1BF9683E00DF7465 /* AppDelegate.m in Sources */,
+				2583EEA91BFDC6E40033AFCC /* SeeMoreTableViewCell.m in Sources */,
 				2538EBEB1BF9683E00DF7465 /* main.m in Sources */,
 				2538EBF71BF9683E00DF7465 /* OfferBlast.xcdatamodeld in Sources */,
+				2583EEA51BFDBAC20033AFCC /* WeeklyDealsTableViewCell.m in Sources */,
 				2538EC1F1BF9998E00DF7465 /* GlobalLoginViewController.m in Sources */,
+				2583EE971BFDAE450033AFCC /* MoreViewController.m in Sources */,
 				2538EC261BF9B3E400DF7465 /* WebServiceClient.m in Sources */,
+				2583EE9E1BFDB9B00033AFCC /* NearByDealsViewController.m in Sources */,
+				2583EEA21BFDBAA40033AFCC /* DailyDealsTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
