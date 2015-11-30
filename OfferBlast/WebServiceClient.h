@@ -17,19 +17,18 @@
 + (WebServiceClient *)sharedWebServiceClient;
 - (instancetype)initWithBaseURL:(NSURL *)url;
 
-- (void) retrieveBooks;
-- (void) addBook: (NSDictionary *) params;
-- (void) deleteBook: (NSString *) book;
-- (void) updateBookCheckoutWithParams: (NSDictionary *) params withBookID: (NSString *) bookID;
-- (void) deleteAllBooks;
+- (void) getDailyDeals;
+- (void) getWeeklyDeals;
+//- (void) addDeal: (NSDictionary *) params;
 
 @end
 
 @protocol WebServiceClientDelegate <NSObject>
 
 @optional
--(void)webServiceClient:(WebServiceClient *)client didUpdateWithBooks:(id)books;
--(void)webServiceClient:(WebServiceClient *)client didAddBook:(id)book;
+-(void)webServiceClient:(WebServiceClient *)client didUpdateWithDailyDeals:(id)deals;
+-(void)webServiceClient:(WebServiceClient *)client didUpdateWithWeeklyDeals:(id)deals;
+//-(void)webServiceClient:(WebServiceClient *)client didAddDeal:(id)deal;
 -(void)webServiceClient:(WebServiceClient *)client didFailWithError:(NSError *)error;
 
 @end

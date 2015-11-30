@@ -39,6 +39,7 @@
 		2583EEB91BFDD97A0033AFCC /* offer-icon-5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2583EEB81BFDD97A0033AFCC /* offer-icon-5.jpg */; settings = {ASSET_TAGS = (); }; };
 		2583EEBB1BFDD9BB0033AFCC /* 18250249-Smiley-Vector-Illustration-Offer-Blast-Bomb-Face-Stock-Vector-cartoon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2583EEBA1BFDD9BB0033AFCC /* 18250249-Smiley-Vector-Illustration-Offer-Blast-Bomb-Face-Stock-Vector-cartoon.jpg */; settings = {ASSET_TAGS = (); }; };
 		2583EEBD1BFDDA390033AFCC /* 22-512.png in Resources */ = {isa = PBXBuildFile; fileRef = 2583EEBC1BFDDA390033AFCC /* 22-512.png */; settings = {ASSET_TAGS = (); }; };
+		25C057B81C0BFAC500CA2280 /* DealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C057B71C0BFAC500CA2280 /* DealViewController.m */; settings = {ASSET_TAGS = (); }; };
 		B7543CC6F5F3CB55D371223C /* libPods-OfferBlast.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4DC8065051BDE11068F9EAA /* libPods-OfferBlast.a */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +103,8 @@
 		2583EEB81BFDD97A0033AFCC /* offer-icon-5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "offer-icon-5.jpg"; sourceTree = "<group>"; };
 		2583EEBA1BFDD9BB0033AFCC /* 18250249-Smiley-Vector-Illustration-Offer-Blast-Bomb-Face-Stock-Vector-cartoon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "18250249-Smiley-Vector-Illustration-Offer-Blast-Bomb-Face-Stock-Vector-cartoon.jpg"; sourceTree = "<group>"; };
 		2583EEBC1BFDDA390033AFCC /* 22-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "22-512.png"; sourceTree = "<group>"; };
+		25C057B61C0BFAC500CA2280 /* DealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealViewController.h; sourceTree = "<group>"; };
+		25C057B71C0BFAC500CA2280 /* DealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealViewController.m; sourceTree = "<group>"; };
 		D11153A3169CD6A0C562C3CC /* Pods-OfferBlast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OfferBlast.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OfferBlast/Pods-OfferBlast.debug.xcconfig"; sourceTree = "<group>"; };
 		D68CE2006E22E8F3CB184E53 /* Pods-OfferBlast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OfferBlast.release.xcconfig"; path = "Pods/Target Support Files/Pods-OfferBlast/Pods-OfferBlast.release.xcconfig"; sourceTree = "<group>"; };
 		F4DC8065051BDE11068F9EAA /* libPods-OfferBlast.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OfferBlast.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,6 +156,8 @@
 				2538EBEF1BF9683E00DF7465 /* ViewController.h */,
 				2538EBF01BF9683E00DF7465 /* ViewController.m */,
 				2538EBF21BF9683E00DF7465 /* Main.storyboard */,
+				25C057B61C0BFAC500CA2280 /* DealViewController.h */,
+				25C057B71C0BFAC500CA2280 /* DealViewController.m */,
 				2583EEA61BFDBAD30033AFCC /* TableCells */,
 				2583EE9F1BFDB9BC0033AFCC /* Deals */,
 				2538EC271BF9B44400DF7465 /* WebService */,
@@ -464,6 +469,7 @@
 				2583EEA51BFDBAC20033AFCC /* WeeklyDealsTableViewCell.m in Sources */,
 				2538EC1F1BF9998E00DF7465 /* GlobalLoginViewController.m in Sources */,
 				2583EE971BFDAE450033AFCC /* MoreViewController.m in Sources */,
+				25C057B81C0BFAC500CA2280 /* DealViewController.m in Sources */,
 				2538EC261BF9B3E400DF7465 /* WebServiceClient.m in Sources */,
 				2583EE9E1BFDB9B00033AFCC /* NearByDealsViewController.m in Sources */,
 				2583EEA21BFDBAA40033AFCC /* DailyDealsTableViewCell.m in Sources */,

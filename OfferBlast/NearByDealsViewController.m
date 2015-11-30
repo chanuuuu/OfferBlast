@@ -10,8 +10,13 @@
 #import "DailyDealsTableViewCell.h"
 #import "WeeklyDealsTableViewCell.h"
 #import "SeeMoreTableViewCell.h"
+#import "WebServiceClient.h"
 
 @interface NearByDealsViewController ()
+
+@property WebServiceClient *wClient;
+@property (atomic, strong) NSMutableArray *dailyDealsArray;
+@property (atomic, strong) NSMutableArray *weeklyDealsArray;
 
 @end
 
@@ -23,11 +28,24 @@
     [self.navigationItem setHidesBackButton:YES];
     [self setNeedsStatusBarAppearanceUpdate];
     self.title = @"OfferBlast";
+    
+    self.headerTitles = [NSArray arrayWithObjects:@"Daily Deals", @"Weakly Deals", nil];
+    
+    self.wClient = [WebServiceClient sharedWebServiceClient];
+    self.wClient.delegate = self;
+    [self.wClient getDailyDeals];
+    [self.wClient getWeeklyDeals];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)webServiceClient:(WebServiceClient *)client didUpdateWithDailyDeals:(id)deals {
+    NSLog(@"DailyDeals: %@", deals);
+    self.dailyDealsArray = deals;
+    [self.dealsTableView reloadData];
+}
+
+-(void)webServiceClient:(WebServiceClient *)client didUpdateWithWeeklyDeals:(id)deals {
+    self.weeklyDealsArray = deals;
+    [self.dealsTableView reloadData];
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -46,7 +64,13 @@
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return self.headerTitles.count;
+}
+
+- (NSString *)tableView:(UITableView *)tableView
+titleForHeaderInSection:(NSInteger)section
+{
+    return [self.headerTitles objectAtIndex:section];
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -56,116 +80,126 @@
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if([tableView isEqual:self.dailyDealsTableView])
-    {
-        switch (indexPath.row) {
-            case 0:
-            {
-                static NSString *CellIdentifier = @"dealCell";
-                DailyDealsTableViewCell *cell = (DailyDealsTableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-                cell.imageView.image = [UIImage imageNamed:@"images.jpeg"];
-                cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
-                cell.mainTitleLabel.text = @"Coin 2.0";
-                cell.subtitleLabel.text = @"A smart device for all cards";
-                cell.priceLabel.text = @"$99.00";
-                return cell;
-                
-                break;
+    switch (indexPath.section) {
+        case 0:
+            switch (indexPath.row) {
+                case 0:
+                {
+                    static NSString *CellIdentifier = @"dealCell";
+                    DailyDealsTableViewCell *cell = (DailyDealsTableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+                    NSURL *imageURL = [NSURL URLWithString:[[self.dailyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"Image_URL"]];
+                    NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+                    UIImage *image = [UIImage imageWithData:imageData];
+                    
+                    cell.imageView.image = image;
+                    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+                    cell.mainTitleLabel.text = [[self.dailyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"ItemName"];  //@"Coin 2.0";
+                    cell.subtitleLabel.text = [[self.dailyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"Item_Category"];
+                    cell.priceLabel.text = [NSString stringWithFormat:@"%@",[[self.dailyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"Unitprice"]];
+                    return cell;
+                    
+                    break;
+                }
+                    
+                case 1:
+                {
+                    static NSString *CellIdentifier = @"dealCell";
+                    DailyDealsTableViewCell *cell = (DailyDealsTableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+                    NSURL *imageURL = [NSURL URLWithString:[[self.dailyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"Image_URL"]];
+                    NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+                    UIImage *image = [UIImage imageWithData:imageData];
+                    
+                    cell.imageView.image = image;
+                    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+                    cell.mainTitleLabel.text = [[self.dailyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"ItemName"];                    cell.subtitleLabel.text = [[self.dailyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"Item_Category"];
+                    cell.priceLabel.text = [NSString stringWithFormat:@"%@",[[self.dailyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"Unitprice"]];
+                    return cell;
+                    
+                    break;
+                }
+                    
+                case 2:
+                {
+                    static NSString *CellIdentifier = @"seeMore";
+                    SeeMoreTableViewCell *cell = (SeeMoreTableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+                    return cell;
+                    
+                    break;
+                }
+                    
+                default:
+                {
+                    static NSString *CellIdentifier = @"dealCell";
+                    DailyDealsTableViewCell *cell = (DailyDealsTableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+                    return cell;
+                    
+                    break;
+                }
             }
+            break;
             
-            case 1:
-            {
-                static NSString *CellIdentifier = @"dealCell";
-                DailyDealsTableViewCell *cell = (DailyDealsTableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-                cell.imageView.image = [UIImage imageNamed:@"81S6SuC1NHL._SL1500_.jpg"];
-                cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
-                cell.mainTitleLabel.text = @"Aroma Simply Stainless Rice Cooker";
-                cell.subtitleLabel.text = @"14-Cup cooked (7-cup) unccoked";
-                cell.priceLabel.text = @"$39.00";
-                return cell;
-                
-                break;
+        case 1:
+            switch (indexPath.row) {
+                case 0:
+                {
+                    static NSString *CellIdentifier = @"dealCell";
+                    DailyDealsTableViewCell *cell = (DailyDealsTableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+                    NSURL *imageURL = [NSURL URLWithString:[[self.weeklyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"Image_URL"]];
+                    NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+                    UIImage *image = [UIImage imageWithData:imageData];
+                    
+                    cell.imageView.image = image;
+                    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+                    cell.mainTitleLabel.text = [[self.weeklyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"ItemName"];  //@"Coin 2.0";
+                    cell.subtitleLabel.text = [[self.weeklyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"Item_Category"];
+                    cell.priceLabel.text = [NSString stringWithFormat:@"%@",[[self.weeklyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"Unitprice"]];
+                    return cell;
+                    
+                    break;
+                }
+                    
+                case 1:
+                {
+                    static NSString *CellIdentifier = @"dealCell";
+                    DailyDealsTableViewCell *cell = (DailyDealsTableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+                    NSURL *imageURL = [NSURL URLWithString:[[self.weeklyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"Image_URL"]];
+                    NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+                    UIImage *image = [UIImage imageWithData:imageData];
+                    
+                    cell.imageView.image = image;
+                    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+                    cell.mainTitleLabel.text = [[self.weeklyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"ItemName"];                    cell.subtitleLabel.text = [[self.weeklyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"Item_Category"];
+                    cell.priceLabel.text = [NSString stringWithFormat:@"%@",[[self.weeklyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"Unitprice"]];
+                    return cell;
+                    
+                    break;
+                }
+                    
+                case 2:
+                {
+                    static NSString *CellIdentifier = @"seeMore";
+                    SeeMoreTableViewCell *cell = (SeeMoreTableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+                    return cell;
+                    
+                    break;
+                }
+                    
+                default:
+                {
+                    static NSString *CellIdentifier = @"dealCell";
+                    DailyDealsTableViewCell *cell = (DailyDealsTableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+                    return cell;
+                    
+                    break;
+                }
             }
-                
-            case 2:
-            {
-                static NSString *CellIdentifier = @"seeMore";
-                SeeMoreTableViewCell *cell = (SeeMoreTableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-                return cell;
-                
-                break;
-            }
-                
-            default:
-            {
-                static NSString *CellIdentifier = @"dealCell";
-                DailyDealsTableViewCell *cell = (DailyDealsTableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-                return cell;
-                
-                break;
-            }
-        }
+            break;
     }
     
-    if([tableView isEqual:self.weeklyDealsTableView])
-    {
-        switch (indexPath.row) {
-            case 0:
-            {
-                static NSString *CellIdentifier = @"dealCell";
-                WeeklyDealsTableViewCell *cell = (WeeklyDealsTableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-                cell.imageView.frame = CGRectMake(0,0,32,32);
-                cell.imageView.image = [UIImage imageNamed:@"SurfaceBook_206x130px.png"];
-                cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
-                cell.titleLabel.text = @"Surface Book";
-                cell.subtitleLabel.text = @"A hybrid laptop for all the needs";
-                cell.priceLabel.text = @"$499.00";
-                return cell;
-                
-                break;
-            }
-                
-            case 1:
-            {
-                static NSString *CellIdentifier = @"dealCell";
-                WeeklyDealsTableViewCell *cell = (WeeklyDealsTableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-                cell.imageView.frame = CGRectMake(0,0,32,32);
-                cell.imageView.image = [UIImage imageNamed:@"House_of_Cards_Season_1_Poster.jpg"];
-                cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
-                cell.titleLabel.text = @"House of Cards";
-                cell.subtitleLabel.text = @"Season 03";
-                cell.priceLabel.text = @"$19.40";
-                return cell;
-                
-                break;
-            }
-                
-            case 2:
-            {
-                static NSString *CellIdentifier = @"seeMore";
-                SeeMoreTableViewCell *cell = (SeeMoreTableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-                return cell;
-                
-                break;
-            }
-                
-            default:
-            {
-                static NSString *CellIdentifier = @"dealCell";
-                WeeklyDealsTableViewCell *cell = (WeeklyDealsTableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-                return cell;
-                
-                break;
-            }
-        }
-    }
-    
-    static NSString *CellIdentifier = @"dealCell";
-    DailyDealsTableViewCell *cell = (DailyDealsTableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *cellIdentifier = @"dealCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     return cell;
-    
 }
-
 
 
 @end

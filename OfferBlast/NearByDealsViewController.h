@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WebServiceClient.h"
 
-@interface NearByDealsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
-@property (weak, nonatomic) IBOutlet UITableView *dailyDealsTableView;
+@interface NearByDealsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, WebServiceClientDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *dealsTableView;
+@property NSArray *headerTitles;
 
-@property (weak, nonatomic) IBOutlet UITableView *weeklyDealsTableView;
 @end
