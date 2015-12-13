@@ -48,6 +48,11 @@
 		F607E9771C15242800EE65C1 /* CreateAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F607E9761C15242800EE65C1 /* CreateAccountViewController.m */; };
 		F607E97A1C15244B00EE65C1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F607E9791C15244B00EE65C1 /* LoginViewController.m */; };
 		F607E97C1C15475B00EE65C1 /* close-128.png in Resources */ = {isa = PBXBuildFile; fileRef = F607E97B1C15475B00EE65C1 /* close-128.png */; };
+		F607E9AE1C18CE5F00EE65C1 /* DealImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F607E9AD1C18CE5F00EE65C1 /* DealImageTableViewCell.m */; };
+		F607E9BA1C18D07100EE65C1 /* DealOverviewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F607E9B91C18D07100EE65C1 /* DealOverviewTableViewCell.m */; };
+		F607E9BD1C18D0BC00EE65C1 /* DealClaimTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F607E9BC1C18D0BC00EE65C1 /* DealClaimTableViewCell.m */; };
+		F607E9C01C18D0FE00EE65C1 /* DealDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F607E9BF1C18D0FE00EE65C1 /* DealDetailTableViewCell.m */; };
+		F607E9C31C18D38D00EE65C1 /* DealDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F607E9C21C18D38D00EE65C1 /* DealDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +131,16 @@
 		F607E9781C15244B00EE65C1 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		F607E9791C15244B00EE65C1 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		F607E97B1C15475B00EE65C1 /* close-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close-128.png"; sourceTree = "<group>"; };
+		F607E9AC1C18CE5F00EE65C1 /* DealImageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealImageTableViewCell.h; sourceTree = "<group>"; };
+		F607E9AD1C18CE5F00EE65C1 /* DealImageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealImageTableViewCell.m; sourceTree = "<group>"; };
+		F607E9B81C18D07100EE65C1 /* DealOverviewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealOverviewTableViewCell.h; sourceTree = "<group>"; };
+		F607E9B91C18D07100EE65C1 /* DealOverviewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealOverviewTableViewCell.m; sourceTree = "<group>"; };
+		F607E9BB1C18D0BC00EE65C1 /* DealClaimTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealClaimTableViewCell.h; sourceTree = "<group>"; };
+		F607E9BC1C18D0BC00EE65C1 /* DealClaimTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealClaimTableViewCell.m; sourceTree = "<group>"; };
+		F607E9BE1C18D0FE00EE65C1 /* DealDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealDetailTableViewCell.h; sourceTree = "<group>"; };
+		F607E9BF1C18D0FE00EE65C1 /* DealDetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealDetailTableViewCell.m; sourceTree = "<group>"; };
+		F607E9C11C18D38D00EE65C1 /* DealDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealDetailViewController.h; sourceTree = "<group>"; };
+		F607E9C21C18D38D00EE65C1 /* DealDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +191,8 @@
 				2538EBEF1BF9683E00DF7465 /* ViewController.h */,
 				2538EBF01BF9683E00DF7465 /* ViewController.m */,
 				2538EBF21BF9683E00DF7465 /* Main.storyboard */,
+				F607E9C11C18D38D00EE65C1 /* DealDetailViewController.h */,
+				F607E9C21C18D38D00EE65C1 /* DealDetailViewController.m */,
 				25C057B61C0BFAC500CA2280 /* DealViewController.h */,
 				25C057B71C0BFAC500CA2280 /* DealViewController.m */,
 				2583EEA61BFDBAD30033AFCC /* TableCells */,
@@ -278,6 +295,7 @@
 		2583EE9F1BFDB9BC0033AFCC /* Deals */ = {
 			isa = PBXGroup;
 			children = (
+				F607E9AB1C18CE4700EE65C1 /* Cells */,
 				F607E9721C14CCB400EE65C1 /* AllDealsViewController.h */,
 				F607E9731C14CCB400EE65C1 /* AllDealsViewController.m */,
 				2583EE9C1BFDB9B00033AFCC /* NearByDealsViewController.h */,
@@ -322,6 +340,21 @@
 				F4DC8065051BDE11068F9EAA /* libPods-OfferBlast.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F607E9AB1C18CE4700EE65C1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F607E9BE1C18D0FE00EE65C1 /* DealDetailTableViewCell.h */,
+				F607E9BF1C18D0FE00EE65C1 /* DealDetailTableViewCell.m */,
+				F607E9BB1C18D0BC00EE65C1 /* DealClaimTableViewCell.h */,
+				F607E9BC1C18D0BC00EE65C1 /* DealClaimTableViewCell.m */,
+				F607E9AC1C18CE5F00EE65C1 /* DealImageTableViewCell.h */,
+				F607E9AD1C18CE5F00EE65C1 /* DealImageTableViewCell.m */,
+				F607E9B81C18D07100EE65C1 /* DealOverviewTableViewCell.h */,
+				F607E9B91C18D07100EE65C1 /* DealOverviewTableViewCell.m */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -494,9 +527,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F607E9BD1C18D0BC00EE65C1 /* DealClaimTableViewCell.m in Sources */,
 				2538EBF11BF9683E00DF7465 /* ViewController.m in Sources */,
 				F607E9711C13C38900EE65C1 /* MyDealsViewController.m in Sources */,
 				F607E9771C15242800EE65C1 /* CreateAccountViewController.m in Sources */,
+				F607E9C01C18D0FE00EE65C1 /* DealDetailTableViewCell.m in Sources */,
+				F607E9AE1C18CE5F00EE65C1 /* DealImageTableViewCell.m in Sources */,
 				2538EBEE1BF9683E00DF7465 /* AppDelegate.m in Sources */,
 				2583EEA91BFDC6E40033AFCC /* SeeMoreTableViewCell.m in Sources */,
 				2538EBEB1BF9683E00DF7465 /* main.m in Sources */,
@@ -506,9 +542,11 @@
 				2583EEA51BFDBAC20033AFCC /* WeeklyDealsTableViewCell.m in Sources */,
 				2538EC1F1BF9998E00DF7465 /* GlobalLoginViewController.m in Sources */,
 				2583EE971BFDAE450033AFCC /* MoreViewController.m in Sources */,
+				F607E9BA1C18D07100EE65C1 /* DealOverviewTableViewCell.m in Sources */,
 				25C057B81C0BFAC500CA2280 /* DealViewController.m in Sources */,
 				2538EC261BF9B3E400DF7465 /* WebServiceClient.m in Sources */,
 				2583EE9E1BFDB9B00033AFCC /* NearByDealsViewController.m in Sources */,
+				F607E9C31C18D38D00EE65C1 /* DealDetailViewController.m in Sources */,
 				2583EEA21BFDBAA40033AFCC /* DailyDealsTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -568,7 +606,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: cj.offerblast";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development IOS Push Services: cj.offerblast";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -612,7 +651,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: cj.offerblast";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development IOS Push Services: cj.offerblast";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -638,13 +678,13 @@
 			baseConfigurationReference = D11153A3169CD6A0C562C3CC /* Pods-OfferBlast.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: cj.offerblast";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development IOS Push Services: cj.offerblast";
 				INFOPLIST_FILE = OfferBlast/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Offer-Blast.OfferBlast";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "51105b26-0a3d-489e-8840-53b99935d499";
 			};
 			name = Debug;
 		};
@@ -653,13 +693,13 @@
 			baseConfigurationReference = D68CE2006E22E8F3CB184E53 /* Pods-OfferBlast.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: cj.offerblast";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development IOS Push Services: cj.offerblast";
 				INFOPLIST_FILE = OfferBlast/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Offer-Blast.OfferBlast";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "51105b26-0a3d-489e-8840-53b99935d499";
 			};
 			name = Release;
 		};

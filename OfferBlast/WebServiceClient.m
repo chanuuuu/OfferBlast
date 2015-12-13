@@ -8,7 +8,7 @@
 
 #import "WebServiceClient.h"
 
-static NSString * const BaseURLString = @"http://ec2-52-8-44-22.us-west-1.compute.amazonaws.com:8088/api/";
+static NSString * const BaseURLString = @"http://ec2-52-8-44-22.us-west-1.compute.amazonaws.com:8088/";
 @implementation WebServiceClient
 
 NSMutableArray *resultArray;
@@ -46,7 +46,7 @@ NSMutableArray *resultArray;
     //manager.responseSerializer = [AFJSONResponseSerializer serializer];
     
     
-    [self GET:@"Weeklydeals"
+    [self GET:@"api/Weeklydeals"
    parameters:nil
       success:^(NSURLSessionDataTask *task, id responseObject) {
           NSLog(@"JSON: %@", responseObject);
@@ -70,7 +70,7 @@ NSMutableArray *resultArray;
     //manager.responseSerializer = [AFJSONResponseSerializer serializer];
     
     
-    [self GET:@"Dailydeals"
+    [self GET:@"api/Dailydeals"
    parameters:nil
       success:^(NSURLSessionDataTask *task, id responseObject) {
           NSLog(@"JSON: %@", responseObject);
@@ -89,7 +89,7 @@ NSMutableArray *resultArray;
 }
 
 - (void) getMyDealsWithToken:(NSString *)token {
-    [self POST:@"Randomdeals"
+    [self POST:@"api/Randomdeals"
     parameters:@{@"Authorization":token}
             success:^(NSURLSessionDataTask *task, id responseObject) {
                 NSLog(@"My Deal JSON: %@", responseObject);
@@ -108,8 +108,10 @@ NSMutableArray *resultArray;
 }
 
 - (void) validatedLoginWithUsername:(NSString *)username andPassword:(NSString *)password {
-    [self POST:@"Token"
-    parameters:@{@"UserName": username, @"Password": password, @"grant_type":@"password"}
+    //self.responseSerializer.acceptableStatusCodes = [NSIndexSet indexSetWithIndex:400];
+    //self.requestSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/x-www-form-urlencoded"];
+    [self POST:@"api/Token"
+    parameters:@{@"UserName": @"cmpe298@sjsu.com", @"Password": @"Abcd1234*", @"grant_type":@"password"}
        success:^(NSURLSessionDataTask *task, id responseObject) {
            NSLog(@"Login JSON: %@", responseObject);
            
@@ -126,8 +128,8 @@ NSMutableArray *resultArray;
 }
 
 - (void) createAccountWithName:(NSString *)name withEmail:(NSString *)email withCity:(NSString *)city withState:(NSString *)state withZipcode:(NSString *)zipcode withPassword:(NSString *)pwd withRetypedPassword:(NSString *)pwd1 {
-    [self POST:@"Account/Register"
-    parameters:@{@"Cust_name": name, @"Email": email, @"City": city, @"State": state, @"Zipcode": zipcode, @"Password":@"123", @"ConfirmPassword": @"123"}
+    [self POST:@"api/Account/Register"
+    parameters:@{@"Cust_name": name, @"Email": email, @"City": city, @"State": state, @"Zipcode": zipcode, @"Password":pwd, @"ConfirmPassword": pwd1}
        success:^(NSURLSessionDataTask *task, id responseObject) {
            NSLog(@"Login JSON: %@", responseObject);
            
@@ -143,47 +145,9 @@ NSMutableArray *resultArray;
        }];
 }
 
-//- (void) addBook:(NSDictionary *) params {
-//    
-//    [self POST:@"books"
-//    parameters:params
-//       success:^(NSURLSessionDataTask *task, id responseObject) {
-//           NSLog(@"addBook JSON: %@", responseObject);
-//           
-//           if ([self.delegate respondsToSelector:@selector(webServiceClient:didUpdateWithBooks:)]) {
-//               [self retrieveBooks];
-//               //[self.delegate webServiceClient:self didUpdateWithBooks:responseObject];
-//               //[[NSNotificationCenter defaultCenter] postNotificationName: @"bookAdded" object:nil userInfo:nil];
-//           }
-//           
-//       } failure:^(NSURLSessionDataTask *task, NSError *error) {
-//           if ([self.delegate respondsToSelector:@selector(webServiceClient:didFailWithError:)]) {
-//               [self.delegate webServiceClient:self didFailWithError:error];
-//           }
-//       }];
-//    
-//}
-//
-////CheckOut a book -- request to PUT /books/id
-//- (void) updateBookCheckoutWithParams: (NSDictionary *) params withBookID: (NSString *) bookID
-//{
-//    [self PUT:[NSString stringWithFormat:@"books/%@",bookID]
-//   parameters:params
-//      success:^(NSURLSessionDataTask *task, id responseObject) {
-//          NSLog(@"updateBook JSON: %@", responseObject);
-//          
-//          if ([self.delegate respondsToSelector:@selector(webServiceClient:didUpdateWithBooks:)]) {
-//              [self retrieveBooks];
-//              //[[NSNotificationCenter defaultCenter] postNotificationName: @"bookCheckedOut" object:nil userInfo:nil];
-//              
-//          }
-//          
-//      } failure:^(NSURLSessionDataTask *task, NSError *error) {
-//          if ([self.delegate respondsToSelector:@selector(webServiceClient:didFailWithError:)]) {
-//              [self.delegate webServiceClient:self didFailWithError:error];
-//          }
-//      }];
-//}
+- (void) claimDeal {
+    
+}
 
 
 @end

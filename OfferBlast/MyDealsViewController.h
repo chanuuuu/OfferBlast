@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 #import "WebServiceClient.h"
 
-@interface MyDealsViewController : UIViewController <WebServiceClientDelegate>
+@interface MyDealsViewController : UIViewController <WebServiceClientDelegate, CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *myDealsTableView;
 
 @end

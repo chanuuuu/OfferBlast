@@ -13,6 +13,8 @@
 #import "WebServiceClient.h"
 #import "AllDealsViewController.h"
 #import "DealViewController.h"
+#import "DealDetailViewController.h"
+#import <Parse/Parse.h>
 
 @interface NearByDealsViewController ()
 
@@ -39,6 +41,14 @@
     self.wClient.delegate = self;
     [self.wClient getDailyDeals];
     [self.wClient getWeeklyDeals];
+    
+    // Create our Installation query
+    PFQuery *pushQuery = [PFInstallation query];
+    [pushQuery whereKey:@"deviceType" equalTo:@"ios"];
+    
+    // Send push notification to query
+    [PFPush sendPushMessageToQueryInBackground:pushQuery
+                                   withMessage:@"Hello World!"];
 }
 
 -(void)webServiceClient:(WebServiceClient *)client didUpdateWithDailyDeals:(id)deals {
@@ -99,9 +109,13 @@ titleForHeaderInSection:(NSInteger)section
                     cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
                     cell.mainTitleLabel.text = [[self.dailyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"ItemName"];  //@"Coin 2.0";
                     cell.subtitleLabel.text = [[self.dailyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"Item_Category"];
+                    if ([[self.dailyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"Unitprice"] == nil) {
+                        cell.priceLabel.text = @"";
+                    }
+                    else {
                     cell.priceLabel.text = [NSString stringWithFormat:@"%@",[[self.dailyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"Unitprice"]];
+                    }
                     return cell;
-                    
                     break;
                 }
                     
@@ -116,7 +130,12 @@ titleForHeaderInSection:(NSInteger)section
                     cell.imageView.image = image;
                     cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
                     cell.mainTitleLabel.text = [[self.dailyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"ItemName"];                    cell.subtitleLabel.text = [[self.dailyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"Item_Category"];
+                    if ([[self.dailyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"Unitprice"] == nil) {
+                        cell.priceLabel.text = @"";
+                    }
+                    else {
                     cell.priceLabel.text = [NSString stringWithFormat:@"%@",[[self.dailyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"Unitprice"]];
+                    }
                     return cell;
                     
                     break;
@@ -156,7 +175,12 @@ titleForHeaderInSection:(NSInteger)section
                     cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
                     cell.mainTitleLabel.text = [[self.weeklyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"ItemName"];  //@"Coin 2.0";
                     cell.subtitleLabel.text = [[self.weeklyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"Item_Category"];
-                    cell.priceLabel.text = [NSString stringWithFormat:@"%@",[[self.weeklyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"Unitprice"]];
+                    if ([[self.dailyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"Unitprice"] == nil) {
+                        cell.priceLabel.text = @"";
+                    }
+                    else {
+                        cell.priceLabel.text = [NSString stringWithFormat:@"%@",[[self.weeklyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"Unitprice"]];
+                    }
                     return cell;
                     
                     break;
@@ -173,7 +197,12 @@ titleForHeaderInSection:(NSInteger)section
                     cell.imageView.image = image;
                     cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
                     cell.mainTitleLabel.text = [[self.weeklyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"ItemName"];                    cell.subtitleLabel.text = [[self.weeklyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"Item_Category"];
-                    cell.priceLabel.text = [NSString stringWithFormat:@"%@",[[self.weeklyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"Unitprice"]];
+                    if ([[self.dailyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"Unitprice"] == nil) {
+                        cell.priceLabel.text = @"";
+                    }
+                    else {
+                        cell.priceLabel.text = [NSString stringWithFormat:@"%@",[[self.weeklyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"Unitprice"]];
+                    }
                     return cell;
                     
                     break;
@@ -248,7 +277,7 @@ titleForHeaderInSection:(NSInteger)section
     
     if ([[segue identifier] isEqualToString:@"dealDetailSegue"])
     {
-        DealViewController *destinationViewController = segue.destinationViewController;
+        DealDetailViewController *destinationViewController = segue.destinationViewController;
         if (self.isDailyDealsSelected) {
            destinationViewController.dealArray = self.dailyDealsArray[self.selectedRow];
         }

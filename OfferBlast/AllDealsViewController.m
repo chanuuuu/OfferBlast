@@ -9,6 +9,7 @@
 #import "AllDealsViewController.h"
 #import "DailyDealsTableViewCell.h"
 #import "DealViewController.h"
+#import "DealDetailViewController.h"
 
 @interface AllDealsViewController ()
 
@@ -70,9 +71,9 @@ titleForHeaderInSection:(NSInteger)section
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     // making sure the correct logging in/out bool is passed when going to accounts
-    if ([[segue identifier] isEqualToString:@"dealsFromAllDealsSegue"])
+    if ([[segue identifier] isEqualToString:@"dealFromAllDealsSegue"])
     {
-        DealViewController *destinationViewController = segue.destinationViewController;
+        DealDetailViewController *destinationViewController = segue.destinationViewController;
         destinationViewController.dealArray = self.allDealsArray[self.selectedRow];
     }
 }
@@ -80,7 +81,7 @@ titleForHeaderInSection:(NSInteger)section
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     self.selectedRow = indexPath.row;
-    [self performSegueWithIdentifier:@"dealFromAllDealsSegue" sender:indexPath];
+    [self performSegueWithIdentifier:@"dealFromAllDealsSegue" sender:self];
     
 }
 

@@ -35,8 +35,34 @@
 }
 
 - (IBAction)claimDeal:(id)sender {
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:@"Deal Claimed"
+                                          message:@"Deal has been Claimed. Please continue your purschase at the retailer"
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction
+                               actionWithTitle:NSLocalizedString(@"OK", @"OK action")
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction *action)
+                               {
+                                   [self dismissViewControllerAnimated:YES completion:nil];
+                               }];
+    [alertController addAction:okAction];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (IBAction)saveDeal:(id)sender {
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:@"Deal Saved"
+                                          message:@"Deal has been saved!"
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction
+                               actionWithTitle:NSLocalizedString(@"OK", @"OK action")
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction *action)
+                               {
+                                   [self dismissViewControllerAnimated:YES completion:nil];
+                               }];
+    [alertController addAction:okAction];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 @end

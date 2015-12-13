@@ -16,6 +16,10 @@
 @property (atomic, strong) NSMutableArray *myDealsArray;
 @property NSString *access_token;
 
+@property (strong, nonatomic) CLBeaconRegion *myBeaconRegion;
+@property (strong, nonatomic) CLLocationManager *locationManager;
+
+
 @end
 
 @implementation MyDealsViewController
@@ -32,7 +36,21 @@
     
     self.wClient = [WebServiceClient sharedWebServiceClient];
     self.wClient.delegate = self;
-    [self.wClient getMyDealsWithToken:self.access_token];
+    //[self.wClient getMyDealsWithToken:self.access_token];
+    
+    // Initialize location manager and set ourselves as the delegate
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    
+    // Create a NSUUID with the same UUID as the broadcasting beacon
+    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"DCBF9CA2-53AD-49DF-AC57-64ACF2B95BB5"];
+    
+    // Setup a new region with that UUID and same identifier as the broadcasting beacon
+    self.myBeaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid
+                                                             identifier:@"com.offerblast.testregion"];
+    
+    // Tell location manager to start monitoring for the beacon region
+    [self.locationManager startMonitoringForRegion:self.myBeaconRegion];
 }
 
 -(void)webServiceClient:(WebServiceClient *)client didUpdateWithMyDeals:(id)deals {
@@ -73,5 +91,47 @@ titleForHeaderInSection:(NSInteger)section
     return cell;
 
 }
+
+- (void)locationManager:(CLLocationManager*)manager didEnterRegion:(CLRegion*)region
+{
+    [self.locationManager startRangingBeaconsInRegion:self.myBeaconRegion];
+}
+
+-(void)locationManager:(CLLocationManager*)manager didExitRegion:(CLRegion*)region
+{
+    [self.locationManager stopRangingBeaconsInRegion:self.myBeaconRegion];
+    //self.beaconFoundLabel.text = @"No";
+}
+
+-(void)locationManager:(CLLocationManager*)manager
+       didRangeBeacons:(NSArray*)beacons
+              inRegion:(CLBeaconRegion*)region
+{
+    // Beacon found!
+    //self.statusLabel.text = @"Beacon found!";
+    NSLog(@"Beacon found!");
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:@"iBeacon found"
+                                          message:@"You are in the Chanu's home"
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction
+                               actionWithTitle:NSLocalizedString(@"OK", @"OK action")
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction *action)
+                               {
+                                   [self dismissViewControllerAnimated:YES completion:nil];
+                               }];
+    [alertController addAction:okAction];
+
+    
+    CLBeacon *foundBeacon = [beacons firstObject];
+    
+    // You can retrieve the beacon data from its properties
+    //NSString *uuid = foundBeacon.proximityUUID.UUIDString;
+    //NSString *major = [NSString stringWithFormat:@"%@", foundBeacon.major];
+    //NSString *minor = [NSString stringWithFormat:@"%@", foundBeacon.minor];
+}
+
+
 
 @end
