@@ -11,5 +11,7 @@
 @interface DealDetailViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) NSDictionary *dealArray;
+- (void) showSuccessAlert;
+- (void) showLoginAlert;
 
 @end

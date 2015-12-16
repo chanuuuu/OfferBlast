@@ -39,6 +39,8 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     [self.loginOutlet setTitle:@"Logout" forState:UIControlStateNormal];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)loginBtn:(id)sender {

@@ -23,6 +23,7 @@
 - (void) validatedLoginWithUsername: (NSString *) username andPassword: (NSString *) password;
 - (void) createAccountWithName: (NSString *) name withEmail: (NSString *) email withCity:(NSString *) city withState:(NSString *) state withZipcode: (NSString *) zipcode withPassword:(NSString *) pwd withRetypedPassword:(NSString *) pwd1;
 //- (void) addDeal: (NSDictionary *) params;
+- (void) claimDealWithItemID:(NSInteger) itemID andCouponID:(NSInteger) couponID andToken:(NSString *) token;
 
 @end
 
@@ -34,6 +35,7 @@
 - (void)webServiceClient:(WebServiceClient *)client didUpdateWithMyDeals:(id)deals;
 - (void)webServiceClient:(WebServiceClient *)client didUpdateWithToken:(id)response;
 - (void)webServiceClient:(WebServiceClient *)client didUpdateServerResponseForRegister:(id)response;
+- (void)webServiceClient:(WebServiceClient *)client didClaimedDeal:(id) response;
 
 //-(void)webServiceClient:(WebServiceClient *)client didAddDeal:(id)deal;
 - (void)webServiceClient:(WebServiceClient *)client didFailWithError:(NSError *)error;

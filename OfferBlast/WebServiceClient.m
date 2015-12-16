@@ -8,7 +8,7 @@
 
 #import "WebServiceClient.h"
 
-static NSString * const BaseURLString = @"http://ec2-52-8-44-22.us-west-1.compute.amazonaws.com:8088/";
+static NSString * const BaseURLString = @"http://ec2-54-67-58-180.us-west-1.compute.amazonaws.com:8088/";
 @implementation WebServiceClient
 
 NSMutableArray *resultArray;
@@ -89,8 +89,9 @@ NSMutableArray *resultArray;
 }
 
 - (void) getMyDealsWithToken:(NSString *)token {
-    [self POST:@"api/Randomdeals"
-    parameters:@{@"Authorization":token}
+    [self.requestSerializer setValue:[NSString stringWithFormat:@"Bearer %@", token] forHTTPHeaderField:@"Authorization"];
+    [self GET:@"api/Targeteddeals"
+    parameters:nil
             success:^(NSURLSessionDataTask *task, id responseObject) {
                 NSLog(@"My Deal JSON: %@", responseObject);
      
@@ -108,8 +109,7 @@ NSMutableArray *resultArray;
 }
 
 - (void) validatedLoginWithUsername:(NSString *)username andPassword:(NSString *)password {
-    //self.responseSerializer.acceptableStatusCodes = [NSIndexSet indexSetWithIndex:400];
-    //self.requestSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/x-www-form-urlencoded"];
+    self.requestSerializer = [AFHTTPRequestSerializer serializer];
     [self POST:@"api/Token"
     parameters:@{@"UserName": @"cmpe298@sjsu.com", @"Password": @"Abcd1234*", @"grant_type":@"password"}
        success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -128,6 +128,7 @@ NSMutableArray *resultArray;
 }
 
 - (void) createAccountWithName:(NSString *)name withEmail:(NSString *)email withCity:(NSString *)city withState:(NSString *)state withZipcode:(NSString *)zipcode withPassword:(NSString *)pwd withRetypedPassword:(NSString *)pwd1 {
+    
     [self POST:@"api/Account/Register"
     parameters:@{@"Cust_name": name, @"Email": email, @"City": city, @"State": state, @"Zipcode": zipcode, @"Password":pwd, @"ConfirmPassword": pwd1}
        success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -145,8 +146,23 @@ NSMutableArray *resultArray;
        }];
 }
 
-- (void) claimDeal {
-    
+- (void) claimDealWithItemID:(NSInteger) itemID andCouponID:(NSInteger) couponID andToken:(NSString *) token {
+    [self.requestSerializer setValue:[NSString stringWithFormat:@"Bearer %@", token] forHTTPHeaderField:@"Authorization"];
+    [self POST:@"api/Order/"
+    parameters:@{@"itemId": [NSNumber numberWithInteger:itemID], @"couponId": [NSNumber numberWithInteger:couponID]}
+      success:^(NSURLSessionDataTask *task, id responseObject) {
+          NSLog(@"My Deal JSON: %@", responseObject);
+          
+          if ([self.delegate respondsToSelector:@selector(webServiceClient:didClaimedDeal:)]) {
+              [self.delegate webServiceClient:self didClaimedDeal:responseObject];
+          }
+          
+      } failure:^(NSURLSessionDataTask *task, NSError *error) {
+          NSLog(@"Error with My Deals: %@", error);
+          if ([self.delegate respondsToSelector:@selector(webServiceClient:didFailWithError:)]) {
+              [self.delegate webServiceClient:self didFailWithError:error];
+          }
+      }];
 }
 
 

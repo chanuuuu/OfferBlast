@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2538EBEB1BF9683E00DF7465 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2538EBEA1BF9683E00DF7465 /* main.m */; };
 		2538EBEE1BF9683E00DF7465 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2538EBED1BF9683E00DF7465 /* AppDelegate.m */; };
-		2538EBF11BF9683E00DF7465 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2538EBF01BF9683E00DF7465 /* ViewController.m */; };
 		2538EBF41BF9683E00DF7465 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2538EBF21BF9683E00DF7465 /* Main.storyboard */; };
 		2538EBF71BF9683E00DF7465 /* OfferBlast.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2538EBF51BF9683E00DF7465 /* OfferBlast.xcdatamodeld */; };
 		2538EBF91BF9683E00DF7465 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2538EBF81BF9683E00DF7465 /* Assets.xcassets */; };
@@ -70,8 +69,6 @@
 		2538EBEA1BF9683E00DF7465 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2538EBEC1BF9683E00DF7465 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2538EBED1BF9683E00DF7465 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2538EBEF1BF9683E00DF7465 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2538EBF01BF9683E00DF7465 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		2538EBF31BF9683E00DF7465 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2538EBF61BF9683E00DF7465 /* OfferBlast.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OfferBlast.xcdatamodel; sourceTree = "<group>"; };
 		2538EBF81BF9683E00DF7465 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -188,8 +185,6 @@
 			isa = PBXGroup;
 			children = (
 				2583EE9B1BFDB3500033AFCC /* Other */,
-				2538EBEF1BF9683E00DF7465 /* ViewController.h */,
-				2538EBF01BF9683E00DF7465 /* ViewController.m */,
 				2538EBF21BF9683E00DF7465 /* Main.storyboard */,
 				F607E9C11C18D38D00EE65C1 /* DealDetailViewController.h */,
 				F607E9C21C18D38D00EE65C1 /* DealDetailViewController.m */,
@@ -528,7 +523,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F607E9BD1C18D0BC00EE65C1 /* DealClaimTableViewCell.m in Sources */,
-				2538EBF11BF9683E00DF7465 /* ViewController.m in Sources */,
 				F607E9711C13C38900EE65C1 /* MyDealsViewController.m in Sources */,
 				F607E9771C15242800EE65C1 /* CreateAccountViewController.m in Sources */,
 				F607E9C01C18D0FE00EE65C1 /* DealDetailTableViewCell.m in Sources */,
@@ -678,13 +672,13 @@
 			baseConfigurationReference = D11153A3169CD6A0C562C3CC /* Pods-OfferBlast.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: cj.offerblast";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development IOS Push Services: cj.offerblast";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = OfferBlast/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Offer-Blast.OfferBlast";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "51105b26-0a3d-489e-8840-53b99935d499";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -693,13 +687,13 @@
 			baseConfigurationReference = D68CE2006E22E8F3CB184E53 /* Pods-OfferBlast.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: cj.offerblast";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development IOS Push Services: cj.offerblast";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = OfferBlast/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Offer-Blast.OfferBlast";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "51105b26-0a3d-489e-8840-53b99935d499";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

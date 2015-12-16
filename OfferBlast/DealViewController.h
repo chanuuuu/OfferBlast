@@ -21,5 +21,6 @@
 
 - (IBAction)claimDeal:(id)sender;
 - (IBAction)saveDeal:(id)sender;
+- (void) showSuccessAlert;
 
 @end

@@ -10,8 +10,12 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <Parse/Parse.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface AppDelegate ()
+@interface AppDelegate () <CLLocationManagerDelegate>
+
+@property (strong, nonatomic) CLBeaconRegion *myBeaconRegion;
+@property (strong, nonatomic) CLLocationManager *locationManager;
 
 @end
 
@@ -58,6 +62,24 @@
     [application registerUserNotificationSettings:settings];
     [application registerForRemoteNotifications];
     
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    [self.locationManager requestAlwaysAuthorization];
+    
+    // Create a NSUUID with the same UUID as the broadcasting beacon
+    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"A77A1B68-49A7-4DBF-914C-760D07FBB87B"];
+    
+    // Setup a new region with that UUID and same identifier as the broadcasting beacon
+    self.myBeaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid
+                                                             identifier:@"com.appcoda.testregion"];
+    
+    self.myBeaconRegion.notifyEntryStateOnDisplay = YES;
+    
+    // Tell location manager to start monitoring for the beacon region
+    [self.locationManager startMonitoringForRegion:self.myBeaconRegion];
+    
+    [self.locationManager startRangingBeaconsInRegion:self.myBeaconRegion];
+    
     return YES;
 }
 
@@ -90,6 +112,85 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    UIApplicationState state = [application applicationState];
+    if (state == UIApplicationStateActive) {
+        UIAlertController *alertController = [UIAlertController
+                                              alertControllerWithTitle:@"New Deal"
+                                              message:@"Deal for you"
+                                              preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okAction = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(@"OK", @"OK action")
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction *action)
+                                   {
+                                   }];
+        [alertController addAction:okAction];
+
+    }
+    
+    // Request to reload table view data
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"reloadData" object:self];
+    
+    // Set icon badge number to zero
+    application.applicationIconBadgeNumber = 0;
+}
+
+#pragma mark - Core Location Delegates
+
+- (void)locationManager:(CLLocationManager*)manager didEnterRegion:(CLRegion *)region
+{
+    // We entered a region, now start looking for our target beacons!
+    //[self.locationManager startRangingBeaconsInRegion:self.myBeaconRegion];
+    
+    UILocalNotification* localNotification = [[UILocalNotification alloc] init];
+    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];
+    localNotification.alertBody = @"You have a new deal. Open the app to see it";
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+}
+
+-(void)locationManager:(CLLocationManager*)manager didExitRegion:(CLRegion *)region
+{
+    // Exited the region
+    [self.locationManager stopRangingBeaconsInRegion:self.myBeaconRegion];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region
+{
+    if(state == CLRegionStateInside) {
+        NSLog(@"locationManager didDetermineState INSIDE for %@", region.identifier);
+        
+        // Create our Installation query
+        PFQuery *pushQuery = [PFInstallation query];
+        [pushQuery whereKey:@"deviceType" equalTo:@"ios"];
+        
+        // Send push notification to query
+        [PFPush sendPushMessageToQueryInBackground:pushQuery
+                                       withMessage:@"New Deal for you. Open the app to see it!"];
+
+    }
+    else if(state == CLRegionStateOutside) {
+        NSLog(@"locationManager didDetermineState OUTSIDE for %@", region.identifier);
+    }
+    else {
+        NSLog(@"locationManager didDetermineState OTHER for %@", region.identifier);
+    }
+}
+
+
+-(void)locationManager:(CLLocationManager*)manager
+       didRangeBeacons:(NSArray*)beacons
+              inRegion:(CLBeaconRegion*)region
+{
+    NSLog(@"Beacons:%@", beacons);
+    
+    if (beacons.count != 0) {
+        NSLog(@"Valid beacon count");
+    }
 }
 
 #pragma mark - Core Data stack

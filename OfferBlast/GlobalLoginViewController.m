@@ -36,6 +36,16 @@
     self.facebookLoginBtn.layer.cornerRadius = round(self.facebookLoginBtn.frame.size.height/2);
     self.facebookLoginBtn.layer.masksToBounds = YES;
     
+    if ([[NSUserDefaults standardUserDefaults]
+         stringForKey:@"AccessToken"]) {
+        [self.loginBtn setTitle:@"Log Out" forState:UIControlStateNormal];
+        //[self.signUpBtn setBackgroundColor:[UIColor whiteColor]];
+    }
+    else {
+        [self.loginBtn setTitle:@"Log In" forState:UIControlStateNormal];
+        //[self.signUpBtn setBackgroundColor:[UIColor colorWithRed:219 green:219 blue:219 alpha:0]];  //DBDBDB
+    }
+    
 }
 
 - (IBAction)_loginWithFacebook:(id)sender {
@@ -53,6 +63,24 @@
             NSLog(@"User logged in through Facebook!");
         }
     }];
+}
+
+- (IBAction)login:(id)sender {
+    if ([[NSUserDefaults standardUserDefaults]
+        stringForKey:@"AccessToken"]) {
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"AccessToken"];
+        [self.loginBtn setTitle:@"Log In" forState:UIControlStateNormal];
+        //[self.signUpBtn setBackgroundColor:[UIColor colorWithRed:219 green:219 blue:219 alpha:0]];
+    }
+    else {
+        [self performSegueWithIdentifier:@"loginSegue" sender:self];
+    }
+}
+
+- (IBAction)signup:(id)sender {
+    if (![[NSUserDefaults standardUserDefaults] stringForKey:@"AccessToken"]) {
+        [self performSegueWithIdentifier:@"signupSegue" sender:self];
+    }
 }
 
 - (IBAction)closeVC:(id)sender {

@@ -33,7 +33,11 @@
     [self.navigationController setNavigationBarHidden:NO animated:NO];
     [self.navigationItem setHidesBackButton:YES];
     [self setNeedsStatusBarAppearanceUpdate];
-    self.title = @"OfferBlast";
+    //self.title = @"OfferBlast";
+    [self.navigationItem setTitle:@"OfferBlast"];
+    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:0.23 green:0.35 blue:0.60 alpha:1.0]];
+    [self.navigationController.navigationBar setTitleTextAttributes:
+      @{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     
     self.headerTitles = [NSArray arrayWithObjects:@"Daily Deals", @"Weakly Deals", nil];
     
@@ -101,6 +105,7 @@ titleForHeaderInSection:(NSInteger)section
                 {
                     static NSString *CellIdentifier = @"dealCell";
                     DailyDealsTableViewCell *cell = (DailyDealsTableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     NSURL *imageURL = [NSURL URLWithString:[[self.dailyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"Image_URL"]];
                     NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
                     UIImage *image = [UIImage imageWithData:imageData];
@@ -123,6 +128,7 @@ titleForHeaderInSection:(NSInteger)section
                 {
                     static NSString *CellIdentifier = @"dealCell";
                     DailyDealsTableViewCell *cell = (DailyDealsTableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     NSURL *imageURL = [NSURL URLWithString:[[self.dailyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"Image_URL"]];
                     NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
                     UIImage *image = [UIImage imageWithData:imageData];
@@ -145,6 +151,7 @@ titleForHeaderInSection:(NSInteger)section
                 {
                     static NSString *CellIdentifier = @"seeMore";
                     SeeMoreTableViewCell *cell = (SeeMoreTableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     return cell;
                     
                     break;
@@ -154,6 +161,7 @@ titleForHeaderInSection:(NSInteger)section
                 {
                     static NSString *CellIdentifier = @"dealCell";
                     DailyDealsTableViewCell *cell = (DailyDealsTableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     return cell;
                     
                     break;
@@ -167,6 +175,7 @@ titleForHeaderInSection:(NSInteger)section
                 {
                     static NSString *CellIdentifier = @"dealCell";
                     DailyDealsTableViewCell *cell = (DailyDealsTableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     NSURL *imageURL = [NSURL URLWithString:[[self.weeklyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"Image_URL"]];
                     NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
                     UIImage *image = [UIImage imageWithData:imageData];
@@ -190,6 +199,7 @@ titleForHeaderInSection:(NSInteger)section
                 {
                     static NSString *CellIdentifier = @"dealCell";
                     DailyDealsTableViewCell *cell = (DailyDealsTableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     NSURL *imageURL = [NSURL URLWithString:[[self.weeklyDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"Image_URL"]];
                     NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
                     UIImage *image = [UIImage imageWithData:imageData];
@@ -212,6 +222,7 @@ titleForHeaderInSection:(NSInteger)section
                 {
                     static NSString *CellIdentifier = @"seeMore";
                     SeeMoreTableViewCell *cell = (SeeMoreTableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     return cell;
                     
                     break;
@@ -221,6 +232,7 @@ titleForHeaderInSection:(NSInteger)section
                 {
                     static NSString *CellIdentifier = @"dealCell";
                     DailyDealsTableViewCell *cell = (DailyDealsTableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     return cell;
                     
                     break;
@@ -231,6 +243,7 @@ titleForHeaderInSection:(NSInteger)section
     
     static NSString *cellIdentifier = @"dealCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -266,6 +279,7 @@ titleForHeaderInSection:(NSInteger)section
     if ([[segue identifier] isEqualToString:@"allDealsSegue"])
     {
         AllDealsViewController *destinationViewController = segue.destinationViewController;
+        destinationViewController.isDailyDeal = self.isDailyDealsSelected;
         if (self.isDailyDealsSelected) {
             destinationViewController.allDealsArray = self.dailyDealsArray;
         }

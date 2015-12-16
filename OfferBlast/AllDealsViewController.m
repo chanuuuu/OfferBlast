@@ -25,7 +25,16 @@
     [self.navigationController setNavigationBarHidden:NO animated:NO];
     [self.navigationItem setHidesBackButton:NO];
     [self setNeedsStatusBarAppearanceUpdate];
-    self.title = @"OfferBlast";
+    if (self.isDailyDeal) {
+        [self.navigationItem setTitle:@"Daily Deals"];
+    }
+    else {
+        [self.navigationItem setTitle:@"Weekly Deals"];
+    }
+    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:0.23 green:0.35 blue:0.60 alpha:1.0]];
+    [self.navigationController.navigationBar setTitleTextAttributes:
+     @{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 }
 
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
@@ -33,14 +42,16 @@
     return 1;
 }
 
-- (NSString *)tableView:(UITableView *)tableView
-titleForHeaderInSection:(NSInteger)section
-{
-    if (self.isDailyDeal) {
-        return @"Daily Deals";
-    }
-    return @"Weekly Deals";
-}
+//- (NSString *)tableView:(UITableView *)tableView
+//titleForHeaderInSection:(NSInteger)section
+//{
+////    if (self.isDailyDeal) {
+////        return @"Daily Deals";
+////    }
+////    else {
+////        return @"Weekly Deals";
+////    }
+//}
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -56,6 +67,7 @@ titleForHeaderInSection:(NSInteger)section
 {
     static NSString *CellIdentifier = @"dealCell";
     DailyDealsTableViewCell *cell = (DailyDealsTableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     NSURL *imageURL = [NSURL URLWithString:[[self.allDealsArray[indexPath.row] objectForKey:@"Items"] objectForKey:@"Image_URL"]];
     NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
     UIImage *image = [UIImage imageWithData:imageData];

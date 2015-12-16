@@ -22,8 +22,21 @@
 }
 
 - (IBAction)claimDeal:(id)sender {
-    WebServiceClient *wClient = [WebServiceClient sharedWebServiceClient];
-    [wClient getDailyDeals];
-
+    if ([[NSUserDefaults standardUserDefaults]
+        stringForKey:@"AccessToken"]) {
+      //WebServiceClient *wClient = [WebServiceClient sharedWebServiceClient];
+      //[wClient claimDealWithItemID:self.itemID andCouponID:self.couponID andToken:[[NSUserDefaults standardUserDefaults]
+                                                                                // stringForKey:@"AccessToken"]];
+    [((DealDetailViewController *)self.delegate) showSuccessAlert];
+    }
+    else {
+        [((DealDetailViewController *)self.delegate) showLoginAlert];
+    }
+    
 }
+
+- (void)webServiceClient:(WebServiceClient *)client didClaimedDeal:(id) response {
+    [((DealDetailViewController *)self.delegate) showSuccessAlert];
+}
+
 @end
